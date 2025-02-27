@@ -19,13 +19,15 @@ def gerar_setor(lat, lon, azimute, alcance, abertura=120):
 
 def main():
     st.set_page_config(layout="wide")
-    st.title("GSM Sector View - NAIIC Santarém")
+    #st.header("_GSM Sector View -_ :blue[NAIIC Santarém]", divider="blue")
+    st.subheader("GSM Sector View")
+    st.markdown(":blue[**_©2025   NAIIC CTer Santarém_**]")
     
     # Coordenadas padrão (Santarém, Portugal)
     lat_default = 39.2369
-    lon_default = -8.6859
-    azimute_default = 90
-    alcance_default = 2.0
+    lon_default = -8.6807
+    azimute_default = 40
+    alcance_default = 3.0
     
     # Layout superior com os controles
     col1, col2, col3, col4, col5 = st.columns([1, 1, 1, 1, 1])
@@ -57,9 +59,9 @@ def main():
     
     # Criar mapa com folium
     if mapa_tipo == "Híbrido":
-        mapa = folium.Map(location=[lat, lon], zoom_start=13, tiles=tiles, attr=attr)
+        mapa = folium.Map(location=[lat, lon], zoom_start=14, tiles=tiles, attr=attr)
     else:
-        mapa = folium.Map(location=[lat, lon], zoom_start=13, tiles=tiles)
+        mapa = folium.Map(location=[lat, lon], zoom_start=14, tiles=tiles)
     folium.Marker([lat, lon], tooltip="BTS").add_to(mapa)
     
     # Adicionar setor ao mapa
